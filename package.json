@@ -1,0 +1,30 @@
+{
+  "name": "wa-otp-sender",
+  "version": "1.0.0",
+  "description": "Sent whatsapp verification code",
+  "homepage": "https://github.com/mayas-faraj/wa-otp-sender#readme",
+  "bugs": {
+    "url": "https://github.com/mayas-faraj/wa-otp-sender/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mayas-faraj/wa-otp-sender.git"
+  },
+  "license": "ISC",
+  "author": "Mayas Faraj",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "p-queue": "^9.1.0",
+    "qrcode-terminal": "^0.12.0",
+    "whatsapp-web.js": "^1.34.4"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.3",
+    "@types/qrcode-terminal": "^0.12.2",
+    "typescript": "^5.9.3"
+  }
+}
