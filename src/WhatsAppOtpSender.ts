@@ -7,7 +7,7 @@ import { toWaId } from "./utils/toWaId.js";
 function assertDigits(otp: string, allowedOtpLength: number) {
   if (!RegExp(`^\\d{${allowedOtpLength}}$`).test(otp)) {
     throw new Error(
-      `OTP must be exactly ${allowedOtpLength} digits. Received: "${otp}"`
+      `OTP must be exactly ${allowedOtpLength} digits. Received: "${otp}"`,
     );
   }
 }
@@ -82,7 +82,7 @@ export class WhatsAppOtpSender {
    */
   public async sendVerificationCode(
     otp: string,
-    phoneE164: string
+    phoneE164: string,
   ): Promise<void> {
     assertDigits(otp, this.opts.allowOtpLength ?? 4);
     const to = toWaId(phoneE164);
@@ -94,7 +94,7 @@ export class WhatsAppOtpSender {
 
     await this.sendQueue.add(async () => {
       console.log("[wa-otp] sending OTP to:", to);
-      await this.client.sendMessage(to, message);
+      await this.client.sendMessage(to, message, { sendSeen: false });
       console.log("[wa-otp] sent OTP to:", to);
     });
   }
